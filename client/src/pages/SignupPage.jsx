@@ -22,7 +22,7 @@ function SignupPage() {
       console.log('Passwords do not match');
     } else {
       try {
-        const res = await axios.post('http://localhost:3000/auth/signup', { username, password });
+        const res = await axios.post('/api/signup', { username, password });
         localStorage.setItem('token', res.data.token);
         navigate('/chat');
       } catch (err) {

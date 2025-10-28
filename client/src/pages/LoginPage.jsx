@@ -18,7 +18,7 @@ function LoginPage() {
   const onSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:3000/auth/login', formData);
+      const res = await axios.post('/api/login', formData);
       localStorage.setItem('token', res.data.token);
       navigate('/chat');
     } catch (err) {

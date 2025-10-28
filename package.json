@@ -1,10 +1,20 @@
 {
-  "name": "code-reviewer-fullstack",
-  "private": true,
+  "name": "codeastra",
+  "version": "1.0.0",
+  "description": "AI-Powered Code Review Platform",
+  "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npm run dev --prefix client\" \"npm run dev --prefix server\""
+    "build": "cd client && npm install && npm run build",
+    "dev": "cd client && npm run dev",
+    "start": "cd client && npm run preview"
   },
-  "devDependencies": {
-    "concurrently": "^8.2.2"
-  }
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "@google/generative-ai": "^0.21.0"
+  },
+  "devDependencies": {},
+  "keywords": ["ai", "code-review", "vercel"],
+  "author": "CodeAstra Team",
+  "license": "MIT"
 }
