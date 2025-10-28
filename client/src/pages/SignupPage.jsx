@@ -26,7 +26,8 @@ function SignupPage() {
         localStorage.setItem('token', res.data.token);
         navigate('/chat');
       } catch (err) {
-        console.error(err.response.data);
+        console.error('Signup error:', err.response?.data || err.message);
+        alert('Signup failed: ' + (err.response?.data?.msg || err.message));
       }
     }
   };

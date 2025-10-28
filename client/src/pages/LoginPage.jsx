@@ -22,7 +22,8 @@ function LoginPage() {
       localStorage.setItem('token', res.data.token);
       navigate('/chat');
     } catch (err) {
-      console.error(err.response.data);
+      console.error('Login error:', err.response?.data || err.message);
+      alert('Login failed: ' + (err.response?.data?.msg || err.message));
     }
   };
 

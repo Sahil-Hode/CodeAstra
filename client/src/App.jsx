@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     if (localStorage.token) {
       setAuthToken(localStorage.token);
-      axios.get('http://localhost:3000/auth/me').then(res => {
+      axios.get('/api/me').then(res => {
         setUser(res.data);
       });
     }
@@ -87,7 +87,7 @@ function App() {
     setTyping(true);
 
     try {
-      const response = await axios.post("http://localhost:3000/ai/get-review", {
+      const response = await axios.post("/api/review", {
         code: input,
       });
       const aiMessage = { sender: "ai", text: response.data.review || response.data };
