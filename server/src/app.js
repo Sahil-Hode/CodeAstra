@@ -23,7 +23,16 @@ app.get('/', (req, res) => {
     res.send('Server is running');
 });
 
+// Original routes
 app.use('/ai', aiRoutes);
 app.use('/auth', authRoutes);
+
+// API routes for Vercel compatibility
+app.use('/api', authRoutes);
+app.post('/api/review', (req, res) => {
+  // Forward to AI controller
+  const aiController = require('./controllers/ai.controller');
+  aiController.getReview(req, res);
+});
 
 module.exports = app;
